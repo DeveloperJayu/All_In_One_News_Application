@@ -4,6 +4,7 @@ class Constants{
 
     val gs = "Gujarat Samachar"
     val db = "Divya Bhaskar"
+    val asmita = "ABP Asmita"
     val topStories = "Top Stories"
     val scienceAndTechnology = "Science & Technology"
     val relationship = "Relationship"

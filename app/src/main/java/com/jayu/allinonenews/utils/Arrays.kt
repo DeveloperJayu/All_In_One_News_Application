@@ -10,7 +10,8 @@ class Arrays {
 
     var channelListArray= arrayListOf<Channel>(
         Channel(1,constants.gs, R.drawable.gujaratsamachar),
-        Channel(2,constants.db, R.drawable.divyabhaskar)
+        Channel(2,constants.db, R.drawable.divyabhaskar),
+        Channel(3,constants.asmita,R.drawable.abpasmita)
     )
 
     var allChannelSubListArray = arrayListOf<ChannelSubList>(
