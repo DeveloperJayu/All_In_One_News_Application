@@ -47,7 +47,8 @@ class Arrays {
         ChannelSubList(2,3,constants.national,url.dbNationalUrl),
         ChannelSubList(2,4,constants.international,url.dbInternationalUrl),
         ChannelSubList(2,5,constants.sports,url.dbSportsUrl),
-        ChannelSubList(2,6,constants.nrg,url.dbNRGUrl)
+        ChannelSubList(2,6,constants.nrg,url.dbNRGUrl),
+        ChannelSubList(3,1,constants.home,url.asHomeUrl)
 
     )
 

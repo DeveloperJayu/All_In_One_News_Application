@@ -33,4 +33,5 @@ class Constants{
     val gandhinagar = "Gandhinagar"
     val northGujarat = "North Gujarat"
     val nrg = "NRG"
+    val home = "Home"
 }
