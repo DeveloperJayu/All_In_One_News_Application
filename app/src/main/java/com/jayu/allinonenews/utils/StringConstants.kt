@@ -1,6 +1,6 @@
 package com.jayu.allinonenews.utils
 
-class Constants{
+class StringConstants{
 
     val gs = "Gujarat Samachar"
     val db = "Divya Bhaskar"
@@ -9,6 +9,7 @@ class Constants{
     val scienceAndTechnology = "Science & Technology"
     val relationship = "Relationship"
     val lifestyleAndFashion = "Lifestyle & Fashion"
+    val lifestyle = "Lifestyle"
     val health = "Health"
     val astro = "Astro"
     val nriNews = "NRI News"
@@ -31,7 +32,19 @@ class Constants{
     val bhuj = "Bhuj"
     val kheda = "Kheda - Anand"
     val gandhinagar = "Gandhinagar"
+    val vadodara = "Vadodara"
+    val mehsana = "Mehsana"
+    val anand = "Anand"
     val northGujarat = "North Gujarat"
     val nrg = "NRG"
     val home = "Home"
+    val asmitaVishesh = "Asmita Vishesh"
+    val world = "World"
+    val gadgets = "Gadgets"
+    val crime = "Crime"
+    val dharma = "Dharma"
+    val bollywood = "Bollywood"
+    val viral = "Viral"
+    val events = "Events"
+    val covid19 = "Covid19"
 }

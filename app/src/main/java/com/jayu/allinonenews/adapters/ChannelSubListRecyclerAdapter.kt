@@ -5,12 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.jayu.allinonenews.R
+import com.jayu.allinonenews.fragments.NewsFragment
 import com.jayu.allinonenews.models.ChannelSubList
 import com.jayu.allinonenews.utils.toast
 
 class ChannelSubListRecyclerAdapter(val context : Context, val channelSubList : ArrayList<ChannelSubList>) : RecyclerView.Adapter<ChannelSubListRecyclerAdapter.viewHolder>() {
+
+    private lateinit var mInterstitialAd: InterstitialAd
+
     class viewHolder(view : View) : RecyclerView.ViewHolder(view){
         val parentId : TextView = view.findViewById(R.id.channelParentId)
         val id : TextView = view.findViewById(R.id.channelSubListId)
@@ -28,6 +36,11 @@ class ChannelSubListRecyclerAdapter(val context : Context, val channelSubList : 
     }
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
+
+        mInterstitialAd = InterstitialAd(context)
+        mInterstitialAd.adUnitId = context.getString(R.string.aionInterstital)
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+
         val number = channelSubList[position]
         holder.parentId.text = number.parentId.toString()
         holder.id.text = number.id.toString()
@@ -35,7 +48,15 @@ class ChannelSubListRecyclerAdapter(val context : Context, val channelSubList : 
         holder.name.text = number.name
 
         holder.itemView.setOnClickListener{
-            context.toast(number.url)
+
+            if (mInterstitialAd.isLoaded){
+                mInterstitialAd.show()
+            }
+
+            (it.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment,NewsFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 

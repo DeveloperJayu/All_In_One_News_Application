@@ -5,7 +5,7 @@ import com.jayu.allinonenews.models.Channel
 import com.jayu.allinonenews.models.ChannelSubList
 
 class Arrays {
-    val constants = Constants()
+    val constants = StringConstants()
     val url = URLConstants()
 
     var channelListArray= arrayListOf<Channel>(
@@ -15,6 +15,8 @@ class Arrays {
     )
 
     var allChannelSubListArray = arrayListOf<ChannelSubList>(
+
+        //Gujarat Samachar
         ChannelSubList(1,1,constants.topStories,url.gsTopStoriesUrl),
         ChannelSubList(1,2,constants.scienceAndTechnology,url.gsScienceAndTechnologyUrl),
         ChannelSubList(1,3,constants.relationship,url.gsRelationshipUrl),
@@ -42,14 +44,38 @@ class Arrays {
         ChannelSubList(1,25,constants.kheda,url.gsKhedaUrl),
         ChannelSubList(1,26,constants.gandhinagar,url.gsGandhinagarUrl),
         ChannelSubList(1,27,constants.northGujarat,url.gsNorthGujaratUrl),
+
+        //Divya Bhaskar
         ChannelSubList(2,1,constants.entertainment,url.dbEntertainmentUrl),
         ChannelSubList(2,2,constants.business,url.dbBusinessUrl),
         ChannelSubList(2,3,constants.national,url.dbNationalUrl),
         ChannelSubList(2,4,constants.international,url.dbInternationalUrl),
         ChannelSubList(2,5,constants.sports,url.dbSportsUrl),
         ChannelSubList(2,6,constants.nrg,url.dbNRGUrl),
-        ChannelSubList(3,1,constants.home,url.asHomeUrl)
 
+        //Asmita
+        ChannelSubList(3,1,constants.home,url.asHomeUrl),
+        ChannelSubList(3,2,constants.gujarat,url.asGujaratUrl),
+        ChannelSubList(3,3,constants.business,url.asBusinessUrl),
+        ChannelSubList(3,4,constants.national,url.asNationalUrl),
+        ChannelSubList(3,5,constants.sports,url.asSportsUrl),
+        ChannelSubList(3,6,constants.ahmedabad,url.asAhmedabadUrl),
+        ChannelSubList(3,7,constants.surat,url.asSuratUrl),
+        ChannelSubList(3,8,constants.vadodara,url.asVadodaraUrl),
+        ChannelSubList(3,9,constants.rajkot,url.asRajkotUrl),
+        ChannelSubList(3,10,constants.gandhinagar,url.asGandhinagarUrl),
+        ChannelSubList(3,11,constants.mehsana,url.asMehsanaUrl),
+        ChannelSubList(3,12,constants.anand,url.asAnandUrl),
+        ChannelSubList(3,12,constants.asmitaVishesh,url.asViseshUrl),
+        ChannelSubList(3,13,constants.world,url.asWorldUrl),
+        ChannelSubList(3,14,constants.gadgets,url.asGadgetsUrl),
+        ChannelSubList(3,15,constants.lifestyle,url.asLifestyleUrl),
+        ChannelSubList(3,16,constants.crime,url.asCrimeUrl),
+        ChannelSubList(3,17,constants.dharma,url.asDharmaUrl),
+        ChannelSubList(3,18,constants.bollywood,url.asBollywoodUrl),
+        ChannelSubList(3,19,constants.viral,url.asViralUrl),
+        ChannelSubList(3,20,constants.events,url.asEventsUrl),
+        ChannelSubList(3,21,constants.covid19,url.asCovid19)
     )
 
     var channelSubListArray = arrayListOf<ChannelSubList>()

@@ -27,6 +27,17 @@
         android:id="@+id/nav_host_fragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/coordinatorLayout"/>
+        android:layout_below="@+id/coordinatorLayout"
+        android:layout_above="@id/mainAds"
+        android:layout_marginBottom="10dp"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/mainAds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        ads:adSize= "BANNER"
+        ads:adUnitId="@string/aionBanner"/>
 
 </RelativeLayout>

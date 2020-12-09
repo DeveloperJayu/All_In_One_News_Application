@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.adapters.ChannelSubListRecyclerAdapter
 import com.jayu.allinonenews.utils.Arrays
-import com.jayu.allinonenews.utils.Constants
+import com.jayu.allinonenews.utils.StringConstants
 import com.jayu.allinonenews.utils.toast
 
 class ChannelSubListFragment : Fragment() {
@@ -22,7 +22,7 @@ class ChannelSubListFragment : Fragment() {
     private lateinit var name : String
     private lateinit var toolbar : Toolbar
 
-    private val constants = Constants()
+    private val constants = StringConstants()
     private val array = Arrays()
 
     private lateinit var channelSubListRecyclerView : RecyclerView

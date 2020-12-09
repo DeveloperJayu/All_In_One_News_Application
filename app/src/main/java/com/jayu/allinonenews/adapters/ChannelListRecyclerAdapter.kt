@@ -9,11 +9,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.fragments.ChannelSubListFragment
 import com.jayu.allinonenews.models.Channel
+import com.jayu.allinonenews.utils.toast
 
 class ChannelListRecyclerAdapter(val context: Context, val channelList:ArrayList<Channel>) : RecyclerView.Adapter<ChannelListRecyclerAdapter.viewHolder>(){
+
     class viewHolder(view : View) : RecyclerView.ViewHolder(view){
         val channelId : TextView = view.findViewById(R.id.channelId)
         val channelName : TextView = view.findViewById(R.id.channelName)
@@ -41,6 +46,7 @@ class ChannelListRecyclerAdapter(val context: Context, val channelList:ArrayList
             bundle.putString("name",number.channelName)
             val myFragment = ChannelSubListFragment()
             myFragment.arguments = bundle
+
             (it.context as AppCompatActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment,myFragment)
                 .addToBackStack(null)
