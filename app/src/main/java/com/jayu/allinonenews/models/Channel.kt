@@ -1,4 +1,4 @@
-package com.jayu.allinonenewsapplication.models
+package com.jayu.allinonenews.models
 
 data class Channel(
     val channelId : Int,

@@ -1,4 +1,4 @@
-package com.jayu.allinonenewsapplication.fragments
+package com.jayu.allinonenews.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jayu.allinonenewsapplication.R
-import com.jayu.allinonenewsapplication.adapters.ChannelListRecyclerAdapter
-import com.jayu.allinonenewsapplication.utils.Arrays
+import com.jayu.allinonenews.R
+import com.jayu.allinonenews.adapters.ChannelListRecyclerAdapter
+import com.jayu.allinonenews.utils.Arrays
+import com.jayu.allinonenews.utils.toast
 
 class ChannelListFragment : Fragment() {
 
@@ -33,6 +34,7 @@ class ChannelListFragment : Fragment() {
         channelListRecyclerAdapter = ChannelListRecyclerAdapter(activity as Context,arrays.channelListArray)
         channelListRecyclerView.adapter = channelListRecyclerAdapter
         channelListRecyclerView.layoutManager = channelListLayoutManager
+
         return view
     }
 }

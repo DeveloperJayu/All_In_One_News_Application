@@ -1,4 +1,4 @@
-package com.jayu.allinonenewsapplication
+package com.jayu.allinonenews
 
 import org.junit.Test
 
