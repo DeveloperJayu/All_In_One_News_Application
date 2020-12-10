@@ -46,9 +46,7 @@ class ChannelSubListFragment : Fragment() {
 
         if (bundle == null){
             context?.toast("Sorry, something went wrong")
-            (view.context as AppCompatActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment,ChannelListFragment())
-                .commit()
+            onDestroy()
             return null
         }
 

@@ -1,6 +1,7 @@
 package com.jayu.allinonenews.adapters
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,8 +61,15 @@ class ChannelSubListRecyclerAdapter(
                 mInterstitialAd.show()
             }
 
+            val bundle = Bundle()
+            bundle.putString("url",number.url)
+            bundle.putString("name",number.name)
+
+            val myFragment = NewsFragment()
+            myFragment.arguments = bundle
+
             (it.context as AppCompatActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, NewsFragment())
+                .replace(R.id.nav_host_fragment, myFragment)
                 .addToBackStack(null)
                 .commit()
         }
