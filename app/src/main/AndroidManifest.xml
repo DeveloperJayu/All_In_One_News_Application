@@ -10,15 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+        <activity android:name=".activities.WebViewActivity"></activity>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/app_id"/>
+            android:value="@string/app_id" />
 
-        <activity android:name="com.jayu.allinonenews.activities.MainActivity"
+        <activity
+            android:name=".activities.MainActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

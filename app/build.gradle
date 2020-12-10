@@ -38,6 +38,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'// Material
     implementation 'com.google.android.gms:play-services-ads:19.6.0' //Ads
     implementation 'androidx.multidex:multidex:2.0.1' //Multidex
+    implementation 'com.squareup.picasso:picasso:2.71828' //Picasso
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

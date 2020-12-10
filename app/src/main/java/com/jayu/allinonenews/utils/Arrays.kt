@@ -3,6 +3,7 @@ package com.jayu.allinonenews.utils
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.models.Channel
 import com.jayu.allinonenews.models.ChannelSubList
+import com.jayu.allinonenews.models.News
 
 class Arrays {
     val constants = StringConstants()
@@ -99,4 +100,6 @@ class Arrays {
     )
 
     var channelSubListArray = arrayListOf<ChannelSubList>()
+
+    var newsArray = arrayListOf<News>()
 }
