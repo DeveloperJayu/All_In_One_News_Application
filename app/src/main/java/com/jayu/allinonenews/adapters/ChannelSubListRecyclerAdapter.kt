@@ -26,15 +26,6 @@ class ChannelSubListRecyclerAdapter(
         val id : TextView? = view.findViewById(R.id.channelSubListId)
         val url : TextView? = view.findViewById(R.id.channelUrl)
         val name : TextView? = view.findViewById(R.id.txtChannelSubListName)
-        val mAdView : AdView? = view.findViewById(R.id.mainAds)
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return if ((position+1) %5 ==0){
-            0
-        } else{
-            1
-        }
     }
 
     override fun onCreateViewHolder(
@@ -42,31 +33,18 @@ class ChannelSubListRecyclerAdapter(
         viewType: Int
     ): viewHolder {
 
-        val view : View = if (viewType == 0){
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.ads,
-                parent,
-                false
-            )
-        } else{
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_channel_sub_list_single_row,
-                parent,
-                false
-            )
-        }
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_channel_sub_list_single_row,
+            parent,
+            false
+        )
 
         return viewHolder(view)
     }
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
 
-        val adView = AdView(context)
-        adView.adSize = AdSize.BANNER
-        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
-
         MobileAds.initialize(context){}
-        holder.mAdView?.loadAd(AdRequest.Builder().build())
         mInterstitialAd = InterstitialAd(context)
         mInterstitialAd.adUnitId = context.getString(R.string.aionInterstital)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
@@ -92,5 +70,4 @@ class ChannelSubListRecyclerAdapter(
     override fun getItemCount(): Int {
         return channelSubList.size
     }
-
 }
