@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jayu.allinonenews.R
+import com.jayu.allinonenews.activities.MainActivity
 import com.jayu.allinonenews.adapters.ChannelListRecyclerAdapter
 import com.jayu.allinonenews.utils.Arrays
 import com.jayu.allinonenews.utils.toast
@@ -18,6 +20,7 @@ class ChannelListFragment : Fragment() {
     private lateinit var channelListRecyclerView: RecyclerView
     private lateinit var channelListLayoutManager: RecyclerView.LayoutManager
     private lateinit var channelListRecyclerAdapter : ChannelListRecyclerAdapter
+    private lateinit var toolbar: Toolbar
 
     private val arrays = Arrays()
 
@@ -28,12 +31,16 @@ class ChannelListFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_channel_list, container, false)
+        toolbar = activity!!.findViewById(R.id.toolbar)
+
 
         channelListRecyclerView = view.findViewById(R.id.channelListRecyclerView)
         channelListLayoutManager = GridLayoutManager(activity as Context,2)
         channelListRecyclerAdapter = ChannelListRecyclerAdapter(activity as Context,arrays.channelListArray)
         channelListRecyclerView.adapter = channelListRecyclerAdapter
         channelListRecyclerView.layoutManager = channelListLayoutManager
+
+        toolbar.title = "Home"
 
         return view
     }

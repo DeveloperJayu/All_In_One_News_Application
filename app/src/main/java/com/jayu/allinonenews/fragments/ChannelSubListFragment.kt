@@ -21,20 +21,23 @@ class ChannelSubListFragment : Fragment() {
     private lateinit var parentId : String
     private lateinit var name : String
     private lateinit var toolbar : Toolbar
-
-    private val constants = StringConstants()
-    private val array = Arrays()
-
     private lateinit var channelSubListRecyclerView : RecyclerView
     private lateinit var channelSubListLayoutManager : RecyclerView.LayoutManager
     private lateinit var channelSubListRecyclerAdapter : ChannelSubListRecyclerAdapter
+
+    private val array = Arrays()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_channel_sub_list, container, false)
+
+        val view = inflater
+            .inflate(
+                R.layout.fragment_channel_sub_list,
+                container,
+                false
+            )
         val bundle= arguments
 
         toolbar = activity!!.findViewById(R.id.toolbar)
@@ -46,15 +49,14 @@ class ChannelSubListFragment : Fragment() {
             (view.context as AppCompatActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment,ChannelListFragment())
                 .commit()
-
             return null
         }
 
         parentId = bundle.getString("id") ?: ""
         name = bundle.getString("name") ?: ""
         toolbar.title = name
-        array.channelSubListArray.clear()
 
+        array.channelSubListArray.clear()
         for (i in array.allChannelSubListArray){
             if (i.parentId.toString() == parentId){
                 array.channelSubListArray.add(i)

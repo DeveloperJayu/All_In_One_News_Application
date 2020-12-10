@@ -11,7 +11,8 @@ class Arrays {
     var channelListArray= arrayListOf<Channel>(
         Channel(1,constants.gs, R.drawable.gujaratsamachar),
         Channel(2,constants.db, R.drawable.divyabhaskar),
-        Channel(3,constants.asmita,R.drawable.abpasmita)
+        Channel(3,constants.asmita,R.drawable.abpasmita),
+        Channel(4,constants.news18,R.drawable.news18)
     )
 
     var allChannelSubListArray = arrayListOf<ChannelSubList>(
@@ -75,7 +76,26 @@ class Arrays {
         ChannelSubList(3,18,constants.bollywood,url.asBollywoodUrl),
         ChannelSubList(3,19,constants.viral,url.asViralUrl),
         ChannelSubList(3,20,constants.events,url.asEventsUrl),
-        ChannelSubList(3,21,constants.covid19,url.asCovid19)
+        ChannelSubList(3,21,constants.covid19,url.asCovid19),
+
+        //News18
+        ChannelSubList(4,1,constants.ajabGajab,url.n18AjabGajabUrl),
+        ChannelSubList(4,2,constants.covid19,url.n18CovidUrl),
+        ChannelSubList(4,3,constants.crime,url.n18CrimeUrl),
+        ChannelSubList(4,4,constants.cricket,url.n18CricketUrl),
+        ChannelSubList(4,5,constants.gujarat,url.n18GujaratUrl),
+        ChannelSubList(4,6,constants.world,url.n18WorldUrl),
+        ChannelSubList(4,7,constants.country,url.n18CountryUrl),
+        ChannelSubList(4,8,constants.nationalInternational,url.n18NationalInternationalUrl),
+        ChannelSubList(4,9,constants.dharma,url.n18DharmaUrl),
+        ChannelSubList(4,10,constants.job,url.n18JobUrl),
+        ChannelSubList(4,11,constants.pressNote,url.n18PressnoteUrl),
+        ChannelSubList(4,12,constants.indoChina,url.n18IndoChinaUrl),
+        ChannelSubList(4,13,constants.entertainment,url.n18EntertainmentUrl),
+        ChannelSubList(4,14,constants.movies,url.n18MoviesUrl),
+        ChannelSubList(4,15,constants.mobileAndTech,url.n18MobileAndTechUrl),
+        ChannelSubList(4,16,constants.lifestyle,url.n18LifestyleUrl),
+        ChannelSubList(4,17,constants.trade,url.n18TradeUrl)
     )
 
     var channelSubListArray = arrayListOf<ChannelSubList>()

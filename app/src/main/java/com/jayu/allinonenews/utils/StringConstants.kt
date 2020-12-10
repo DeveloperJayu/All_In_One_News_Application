@@ -5,6 +5,8 @@ class StringConstants{
     val gs = "Gujarat Samachar"
     val db = "Divya Bhaskar"
     val asmita = "ABP Asmita"
+    val news18 = "News18 Gujarati"
+
     val topStories = "Top Stories"
     val scienceAndTechnology = "Science & Technology"
     val relationship = "Relationship"
@@ -47,4 +49,14 @@ class StringConstants{
     val viral = "Viral"
     val events = "Events"
     val covid19 = "Covid19"
+    val ajabGajab = "Ajab Gajab"
+    val cricket ="Cricket"
+    val job = "Job"
+    val country = "Country"
+    val pressNote = "Press Note"
+    val indoChina = "India China Struggle"
+    val movies = "Movies"
+    val mobileAndTech = "Mobile And Technology"
+    val trade = "Trade"
+    val nationalInternational = "National-International"
 }
