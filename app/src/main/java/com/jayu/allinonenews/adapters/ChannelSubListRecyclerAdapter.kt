@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AbsListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -17,13 +16,12 @@ import com.jayu.allinonenews.utils.toast
 
 class ChannelSubListRecyclerAdapter(
     val context: Context,
-    val channelSubList: ArrayList<ChannelSubList>
+    private val channelSubList: ArrayList<ChannelSubList>
 ) : RecyclerView.Adapter<ChannelSubListRecyclerAdapter.viewHolder>() {
 
     private lateinit var mInterstitialAd: InterstitialAd
-//    private lateinit var mAdView : AdView
 
-    class viewHolder(view: View, viewType: Int) : RecyclerView.ViewHolder(view){
+    class viewHolder(view: View) : RecyclerView.ViewHolder(view){
         val parentId : TextView? = view.findViewById(R.id.channelParentId)
         val id : TextView? = view.findViewById(R.id.channelSubListId)
         val url : TextView? = view.findViewById(R.id.channelUrl)
@@ -32,10 +30,9 @@ class ChannelSubListRecyclerAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (position %5 ==0){
+        return if ((position+1) %5 ==0){
             0
-        }
-        else{
+        } else{
             1
         }
     }
@@ -45,37 +42,31 @@ class ChannelSubListRecyclerAdapter(
         viewType: Int
     ): viewHolder {
 
-        val view : View
-
-        if (viewType == 0){
-
-            view = LayoutInflater.from(parent.context).inflate(
+        val view : View = if (viewType == 0){
+            LayoutInflater.from(parent.context).inflate(
                 R.layout.ads,
                 parent,
                 false
             )
-        }
-
-        else{
-            view = LayoutInflater.from(parent.context).inflate(
+        } else{
+            LayoutInflater.from(parent.context).inflate(
                 R.layout.item_channel_sub_list_single_row,
                 parent,
                 false
             )
         }
 
-        return viewHolder(view,viewType)
+        return viewHolder(view)
     }
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
 
         val adView = AdView(context)
         adView.adSize = AdSize.BANNER
-        adView.adUnitId = context.getString(R.string.aionBanner)
+        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
 
         MobileAds.initialize(context){}
         holder.mAdView?.loadAd(AdRequest.Builder().build())
-
         mInterstitialAd = InterstitialAd(context)
         mInterstitialAd.adUnitId = context.getString(R.string.aionInterstital)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
@@ -87,7 +78,6 @@ class ChannelSubListRecyclerAdapter(
         holder.name?.text = number.name
 
         holder.itemView.setOnClickListener{
-
             if (mInterstitialAd.isLoaded){
                 mInterstitialAd.show()
             }

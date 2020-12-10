@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">All In One News</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_id">ca-app-pub-2623676331956176~5835166485</string>
-    <string name="aionBanner">ca-app-pub-2623676331956176/7859883966</string>
-    <string name="aionInterstital">ca-app-pub-2623676331956176/7995615336</string>
+    <string name="aionBanner">ca-app-pub-2623676331956176/7859883966</string> //Production
+<!--    <string name="aionBanner">ca-app-pub-3940256099942544/6300978111</string> //Testing-->
+    <string name="aionInterstital">ca-app-pub-2623676331956176/7995615336</string> //Production
+<!--    <string name="aionInterstital">ca-app-pub-3940256099942544/1033173712</string> //Testing-->
+
 </resources>

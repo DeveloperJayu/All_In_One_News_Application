@@ -53,6 +53,7 @@ class ChannelSubListFragment : Fragment() {
         parentId = bundle.getString("id") ?: ""
         name = bundle.getString("name") ?: ""
         toolbar.title = name
+        array.channelSubListArray.clear()
 
         for (i in array.allChannelSubListArray){
             if (i.parentId.toString() == parentId){

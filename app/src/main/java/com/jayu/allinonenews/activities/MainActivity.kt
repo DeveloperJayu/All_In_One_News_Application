@@ -40,5 +40,4 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Home"
     }
-
 }

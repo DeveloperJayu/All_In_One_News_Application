@@ -23,7 +23,6 @@ class NewsFragment : Fragment() {
 
         mInterstitialAd = InterstitialAd(context)
         mInterstitialAd.adUnitId = context?.getString(R.string.aionInterstital)
-//        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712" //Testing UnitId for Interstitial ad
         mInterstitialAd.loadAd(AdRequest.Builder().build())
 
 
