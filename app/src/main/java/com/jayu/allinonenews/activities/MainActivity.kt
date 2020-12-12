@@ -1,20 +1,22 @@
 package com.jayu.allinonenews.activities
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.gms.ads.*
+import androidx.fragment.app.FragmentManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.navigation.NavigationView
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.fragments.AboutAppFragment
 import com.jayu.allinonenews.fragments.AboutDeveloperFragment
 import com.jayu.allinonenews.fragments.ChannelListFragment
-import com.jayu.allinonenews.fragments.PrivacyPolicyFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         actionBarDrawerToggle.syncState()
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment,ChannelListFragment())
+            .replace(R.id.nav_host_fragment, ChannelListFragment())
             .commit()
 
         navigationView.setNavigationItemSelectedListener{
@@ -67,28 +69,23 @@ class MainActivity : AppCompatActivity() {
 
             if (it.itemId == R.id.home){
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment,ChannelListFragment())
+                    .replace(R.id.nav_host_fragment, ChannelListFragment())
                     .commit()
-                supportFragmentManager.popBackStack()
+                for (i in 0 until supportFragmentManager.backStackEntryCount){
+                    supportFragmentManager.popBackStack()
+                }
                 drawerLayout.closeDrawers()
             }
             if(it.itemId == R.id.aboutApp){
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment,AboutAppFragment())
+                    .replace(R.id.nav_host_fragment, AboutAppFragment())
                     .addToBackStack(null)
                     .commit()
                 drawerLayout.closeDrawers()
             }
             if(it.itemId == R.id.aboutDeveloper){
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment,AboutDeveloperFragment())
-                    .addToBackStack(null)
-                    .commit()
-                drawerLayout.closeDrawers()
-            }
-            if(it.itemId == R.id.privacyPolicy){
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment,PrivacyPolicyFragment())
+                    .replace(R.id.nav_host_fragment, AboutDeveloperFragment())
                     .addToBackStack(null)
                     .commit()
                 drawerLayout.closeDrawers()
