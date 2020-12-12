@@ -73,8 +73,7 @@ class NewsFragment : Fragment() {
         viewModel.rssChannel.observe(this,{channel ->
             if (channel != null){
                 val articles = channel.articles
-                Log.v("finalArray",articles.toString())
-                if (articles.isEmpty()){
+                if (channel.articles.isNotEmpty()){
                     array.newsArray.clear()
                     for (i in 0.. articles.lastIndex){
                         val news = News(
@@ -82,6 +81,8 @@ class NewsFragment : Fragment() {
                             articles[i].link ?: "",
                             articles[i].image ?: ""
                         )
+                        Log.v("title",articles[i].title.toString())
+                        Log.v("Url",articles[i].image.toString())
                         array.newsArray.add(news)
                         newsRecyclerAdapter.notifyDataSetChanged()
                     }

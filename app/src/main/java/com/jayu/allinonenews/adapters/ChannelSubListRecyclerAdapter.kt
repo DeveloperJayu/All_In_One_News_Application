@@ -20,8 +20,6 @@ class ChannelSubListRecyclerAdapter(
     private val channelSubList: ArrayList<ChannelSubList>
 ) : RecyclerView.Adapter<ChannelSubListRecyclerAdapter.viewHolder>() {
 
-    private lateinit var mInterstitialAd: InterstitialAd
-
     class viewHolder(view: View) : RecyclerView.ViewHolder(view){
         val parentId : TextView? = view.findViewById(R.id.channelParentId)
         val id : TextView? = view.findViewById(R.id.channelSubListId)
@@ -46,9 +44,6 @@ class ChannelSubListRecyclerAdapter(
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
 
         MobileAds.initialize(context){}
-        mInterstitialAd = InterstitialAd(context)
-        mInterstitialAd.adUnitId = context.getString(R.string.aionInterstital)
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
 
         val number = channelSubList[position]
         holder.parentId?.text = number.parentId.toString()
@@ -57,10 +52,6 @@ class ChannelSubListRecyclerAdapter(
         holder.name?.text = number.name
 
         holder.itemView.setOnClickListener{
-            if (mInterstitialAd.isLoaded){
-                mInterstitialAd.show()
-            }
-
             val bundle = Bundle()
             bundle.putString("url",number.url)
             bundle.putString("name",number.name)

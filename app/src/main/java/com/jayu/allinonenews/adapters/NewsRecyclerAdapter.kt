@@ -33,7 +33,9 @@ class NewsRecyclerAdapter(val context: Context,val newsList : ArrayList<News>) :
         val number = newsList[position]
         holder.title.text = number.title
         holder.link.text = number.link
-        Picasso.get().load(number.image).error(R.drawable.abpasmita).into(holder.image)
+        if (number.image.isNotEmpty()){
+            Picasso.get().load(number.image).into(holder.image)
+        }
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context,WebViewActivity::class.java)

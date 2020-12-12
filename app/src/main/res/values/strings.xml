@@ -5,8 +5,14 @@
     <string name="aionBanner">ca-app-pub-2623676331956176/7859883966</string>
     //Production
     <!--    <string name="aionBanner">ca-app-pub-3940256099942544/6300978111</string> //Testing-->
-    <string name="aionInterstital">ca-app-pub-2623676331956176/7995615336</string>
-    //Production
+    <string name="aionInterstital">ca-app-pub-2623676331956176/7995615336</string>//Production
     <!--    <string name="aionInterstital">ca-app-pub-3940256099942544/1033173712</string> //Testing-->
+
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+    <string name="home">Home</string>
+    <string name="about_app">About App</string>
+    <string name="about_developer">About Developer</string>
+    <string name="privacy_policy">Privacy Policy</string>
 
 </resources>
