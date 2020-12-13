@@ -77,4 +77,11 @@ class URLConstants {
     val n18MobileAndTechUrl = "https://gujarati.news18.com/rss/tech.xml"
     val n18LifestyleUrl = "https://gujarati.news18.com/rss/lifestyle.xml"
     val n18TradeUrl = "https://gujarati.news18.com/rss/business.xml"
+
+    val githubUrl = "http://github.com/DeveloperJayu"
+    val telegramUrl = "https://t.me/developer_jayu_bot"
+    val instaUrl = "https://www.instagram.com/km_60_baki_majama"
+    val gmailUrl = "mailto:developerjayu@gmail.com"
+    val twitterUrl = "https://twitter.com/ParmarJay38"
+    val linkedinUrl = "https://www.linkedin.com/in/developerjayu"
 }

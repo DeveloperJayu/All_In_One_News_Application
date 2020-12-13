@@ -14,5 +14,15 @@
     <string name="about_app">About App</string>
     <string name="about_developer">About Developer</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="bannerimage">bannerImage</string>
+    <string name="developed_by">Developed By :</string>
+    <string name="developerName">Jayu</string>
+    <string name="lets_connect">Lets Connect</string>
+    <string name="githubimage">githubImage</string>
+    <string name="telegramimage">telegramImage</string>
+    <string name="instaimage">instaImage</string>
+    <string name="gmailimage">gmailImage</string>
+    <string name="twitterimage">twitterImage</string>
+    <string name="linkdinimage">linkdinImage</string>
 
 </resources>
