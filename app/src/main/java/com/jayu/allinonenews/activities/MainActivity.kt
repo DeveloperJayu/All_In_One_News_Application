@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.FragmentManager
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -24,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mAdView : AdView
     private lateinit var drawerLayout : DrawerLayout
     private lateinit var navigationView : NavigationView
-    private var previousMenuItem : MenuItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,14 +56,6 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
         navigationView.setNavigationItemSelectedListener{
-
-            if(previousMenuItem != null){
-                previousMenuItem?.isChecked = false
-            }
-
-            it.isCheckable = true
-            it.isChecked = true
-            previousMenuItem = it
 
             if (it.itemId == R.id.home){
                 supportFragmentManager.beginTransaction()
@@ -108,5 +98,13 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

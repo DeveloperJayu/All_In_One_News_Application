@@ -9,11 +9,10 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.jayu.allinonenews.R
-import com.jayu.allinonenews.activities.MainActivity
 import com.jayu.allinonenews.adapters.ChannelListRecyclerAdapter
 import com.jayu.allinonenews.utils.Arrays
-import com.jayu.allinonenews.utils.toast
 
 class ChannelListFragment : Fragment() {
 
@@ -28,11 +27,11 @@ class ChannelListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_channel_list, container, false)
+        val navView: NavigationView = activity!!.findViewById(R.id.navigationView)
         toolbar = activity!!.findViewById(R.id.toolbar)
-
+        navView.setCheckedItem(R.id.home)
 
         channelListRecyclerView = view.findViewById(R.id.channelListRecyclerView)
         channelListLayoutManager = GridLayoutManager(activity as Context,2)

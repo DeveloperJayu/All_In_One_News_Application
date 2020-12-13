@@ -6,14 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.adapters.ChannelSubListRecyclerAdapter
 import com.jayu.allinonenews.utils.Arrays
-import com.jayu.allinonenews.utils.StringConstants
 import com.jayu.allinonenews.utils.toast
 
 class ChannelSubListFragment : Fragment() {
@@ -39,10 +38,12 @@ class ChannelSubListFragment : Fragment() {
                 false
             )
         val bundle= arguments
+        val navView: NavigationView = activity!!.findViewById(R.id.navigationView)
 
         toolbar = activity!!.findViewById(R.id.toolbar)
         channelSubListRecyclerView = view.findViewById(R.id.channelSubListRecyclerView)
         channelSubListLayoutManager = LinearLayoutManager(context)
+        navView.setCheckedItem(R.id.home)
 
         if (bundle == null){
             context?.toast("Sorry, something went wrong")

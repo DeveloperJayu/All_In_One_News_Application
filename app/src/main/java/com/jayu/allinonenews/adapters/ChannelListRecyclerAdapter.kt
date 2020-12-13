@@ -9,13 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.fragments.ChannelSubListFragment
 import com.jayu.allinonenews.models.Channel
-import com.jayu.allinonenews.utils.toast
 
 class ChannelListRecyclerAdapter(val context: Context, val channelList:ArrayList<Channel>) : RecyclerView.Adapter<ChannelListRecyclerAdapter.viewHolder>(){
 

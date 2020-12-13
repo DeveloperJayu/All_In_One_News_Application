@@ -73,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/about_app"
                     android:textColor="@color/colorPrimaryText"
+                    android:layout_gravity="center_horizontal"
                     android:textSize="@dimen/bigTextSize"
                     android:textStyle="bold"/>
 

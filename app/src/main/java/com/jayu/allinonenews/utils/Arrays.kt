@@ -6,8 +6,8 @@ import com.jayu.allinonenews.models.ChannelSubList
 import com.jayu.allinonenews.models.News
 
 class Arrays {
-    val constants = StringConstants()
-    val url = URLConstants()
+    private val constants = StringConstants()
+    private val url = URLConstants()
 
     var channelListArray= arrayListOf<Channel>(
         Channel(1,constants.gs, R.drawable.gujaratsamachar),

@@ -12,7 +12,6 @@ import com.google.android.gms.ads.*
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.fragments.NewsFragment
 import com.jayu.allinonenews.models.ChannelSubList
-import com.jayu.allinonenews.utils.toast
 
 
 class ChannelSubListRecyclerAdapter(

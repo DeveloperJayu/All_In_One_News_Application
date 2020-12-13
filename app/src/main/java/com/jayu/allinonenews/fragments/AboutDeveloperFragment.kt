@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import com.google.android.material.navigation.NavigationView
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.utils.URLConstants
 
@@ -21,6 +23,7 @@ class AboutDeveloperFragment : Fragment() {
     private lateinit var imgTwitter : ImageView
     private lateinit var imgLinkedIn : ImageView
     private lateinit var imgGmail : ImageView
+    private lateinit var aboutMeDescription : TextView
     val url = URLConstants()
 
     override fun onCreateView(
@@ -29,6 +32,7 @@ class AboutDeveloperFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_about_developer, container, false)
+        val navView: NavigationView = activity!!.findViewById(R.id.navigationView)
 
         toolbar = activity!!.findViewById(R.id.toolbar)
         toolbar.title = "About Developer"
@@ -38,7 +42,12 @@ class AboutDeveloperFragment : Fragment() {
         imgTwitter = view.findViewById(R.id.imgTwitter)
         imgLinkedIn = view.findViewById(R.id.imgLinkedIn)
         imgGmail = view.findViewById(R.id.imgGmail)
+        aboutMeDescription = view.findViewById(R.id.aboutMeDescription)
+        navView.setCheckedItem(R.id.aboutDeveloper)
 
+        aboutMeDescription.text = context?.getString(R.string.developerDescription)
+
+        //Contact Me Buttons
         imgGitHub.setOnClickListener {
             val uri = Uri.parse(url.githubUrl)
             val intent = Intent(Intent.ACTION_VIEW,uri)

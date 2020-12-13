@@ -2,16 +2,17 @@ package com.jayu.allinonenews.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.jayu.allinonenews.R
 import com.jayu.allinonenews.adapters.NewsRecyclerAdapter
@@ -32,6 +33,7 @@ class NewsFragment : Fragment() {
     private lateinit var newsRecyclerView : RecyclerView
     private lateinit var newsLayoutManager : RecyclerView.LayoutManager
     private lateinit var newsRecyclerAdapter : NewsRecyclerAdapter
+    private lateinit var progressBar: ProgressBar
 
     private val viewModel = MyViewModel()
     private val array = Arrays()
@@ -47,7 +49,11 @@ class NewsFragment : Fragment() {
         newsRecyclerAdapter = NewsRecyclerAdapter(context as Context,array.newsArray)
         newsRecyclerView.layoutManager = newsLayoutManager
         newsRecyclerView.adapter = newsRecyclerAdapter
+        progressBar = view.findViewById(R.id.progressBar)
+        progressBar.visibility = View.VISIBLE
         toolbar = activity!!.findViewById(R.id.toolbar)
+        val navView: NavigationView = activity!!.findViewById(R.id.navigationView)
+        navView.setCheckedItem(R.id.home)
 
         val bundle = arguments
         if (bundle == null){
@@ -81,19 +87,16 @@ class NewsFragment : Fragment() {
                             articles[i].link ?: "",
                             articles[i].image ?: ""
                         )
-                        Log.v("title",articles[i].title.toString())
-                        Log.v("Url",articles[i].image.toString())
                         array.newsArray.add(news)
                         newsRecyclerAdapter.notifyDataSetChanged()
+                        progressBar.visibility = View.GONE
                     }
                 }
                 else{
-                    context?.toast("Oieeeeeee")
+                    context?.toast("Sorry, Something went wrong")
                 }
             }
         })
-
-        Log.v("Articles",array.newsArray.toString())
 
         viewModel.snackbar.observe(this, {value->
             value?.let{
@@ -107,7 +110,9 @@ class NewsFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        mInterstitialAd.show()
+        if (mInterstitialAd.isLoaded){
+            mInterstitialAd.show()
+        }
         super.onDestroy()
     }
 }

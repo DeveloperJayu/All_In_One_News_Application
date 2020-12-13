@@ -1,11 +1,17 @@
 package com.jayu.allinonenews.activities
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ProgressBar
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.ads.*
 import com.jayu.allinonenews.R
@@ -17,6 +23,7 @@ class WebViewActivity : AppCompatActivity() {
     private lateinit var url : String
     private lateinit var mAdView : AdView
     private lateinit var mInterstitialAd: InterstitialAd
+    private lateinit var progressBar : ProgressBar
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +33,7 @@ class WebViewActivity : AppCompatActivity() {
         webView = findViewById(R.id.webView)
         toolbar = findViewById(R.id.toolbar)
         mAdView = findViewById(R.id.webAds)
+        progressBar = findViewById(R.id.progressBar)
 
         val webSetting = webView.settings
         setUpToolbar()
@@ -41,9 +49,19 @@ class WebViewActivity : AppCompatActivity() {
 
         MobileAds.initialize(this){}
         mAdView.loadAd(AdRequest.Builder().build())
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = getString(R.string.aionInterstital)
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
 
         webView.webViewClient = WebViewClient()
         webView.loadUrl(url)
+        webView.webChromeClient = object : WebChromeClient() {
+            override fun onProgressChanged(view: WebView, progress: Int) {
+                progressBar.visibility = View.VISIBLE
+
+                if (progress == 100) progressBar.visibility = View.GONE
+            }
+        }
         webSetting.domStorageEnabled = true
         webSetting.javaScriptEnabled = true
 
@@ -63,6 +81,16 @@ class WebViewActivity : AppCompatActivity() {
                 finish()
                 return true
             }
+
+            R.id.openInBrowser->{
+                if (mInterstitialAd.isLoaded) {
+                    mInterstitialAd.show()
+                }
+                val uri = Uri.parse(url)
+                val intent = Intent(Intent.ACTION_VIEW,uri)
+                startActivity(intent)
+                finish()
+            }
         }
 
         return super.onOptionsItemSelected(item)
@@ -74,5 +102,10 @@ class WebViewActivity : AppCompatActivity() {
         } else {
             finish()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.options_menu,menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }

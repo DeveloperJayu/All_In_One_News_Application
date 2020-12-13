@@ -25,4 +25,9 @@
     <string name="twitterimage">twitterImage</string>
     <string name="linkdinimage">linkdinImage</string>
 
+    <string name="developerDescription">"My name is Jay Parmar. I'm android developer with kotlin language and also knows JAVA, C, Python, HTML, CSS,etc. If you want any help in above languages or want any other help you can contact me using any methods below. My projects are available in Github you can check if you want to learn these things. I will appreciate, if you give me suggestions to make these better."</string>
+    <string name="appDescription">"This app is created using Android Studio and Kotlin language. In this app, you can visit different news providers' news in a single click, and you don't have to search differently for other new providers' information. The data provided here is the RSS Feed of the company. If you know any other providers who offer RSS Feed or you want to add any other providers to this app, kindly contact me using any methods shown below, and I will try to add it. I appreciate, if you give me suggestions to make this app better."</string>
+    <string name="open_in_browser">Open in Browser</string>
+    <string name="logo_image">Logo Image</string>
+
 </resources>
